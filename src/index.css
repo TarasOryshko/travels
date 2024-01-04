@@ -1,13 +1,190 @@
-body {
+*,
+*::after,
+*::before {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 50px 20px;
+}
+button {
+  border: none;
+  cursor: pointer;
+}
+li {
+  list-style: none;
+}
+img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+/* HEADER ======================== */
+.headerFlex {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.btnHeader {
+  width: 40px;
+  height: 40px;
+  background-color: #f8f3ec;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.burger {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.burger span,
+.burger::before,
+.burger::after {
+  --burgerWidth: 60%;
+  position: absolute;
+  left: calc((100% - var(--burgerWidth)) / 2);
+  width: var(--burgerWidth);
+  height: 10%;
+  background-color: black;
+  display: block;
+}
+.burger span {
+  top: 45%;
+}
+.burger::before,
+.burger::after {
+  content: "";
+}
+.burger::before {
+  top: 20%;
+}
+.burger::after {
+  bottom: 20%;
+}
+.burger:hover:before {
+  top: 45%;
+  transform: rotate(45deg);
+}
+.burger:hover::after {
+  top: 45%;
+  transform: rotate(-45deg);
+}
+.burger:hover span {
+  scale: 0;
+}
+.btnSing {
+  width: 92px;
+}
+/* HOME ================ */
+.homeBanner {
+  position: relative;
+  background: url("./pages//home//img/samsommer-vddccTqwal8-unsplash\ 1.jpg") 0
+    0 / cover no-repeat;
+  width: 100%;
+  height: 560px;
+  margin: 50px 0;
+}
+.homeBanner > div > h2 {
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 56px;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.homeBanner > div {
+  position: absolute;
+  width: 340px;
+  height: 300px;
+  top: 200px;
+  left: 130px;
+  margin-bottom: 80px;
+}
+.homeBanner > div > p {
+  padding: 26px 0;
+}
+button {
+  padding: 10px 24px;
+  background-color: #d3a562;
+  border-radius: 12px;
+  color: white;
+}
+button:hover {
+  background-color: gold;
+}
+.search {
+  margin: 24px auto 32px;
+  padding-inline: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 730px;
+  height: 64px;
+  border-radius: 34px;
+  border: 2px gold solid;
+  box-shadow: 2px 5px gray;
+}
+.search > input {
+  outline: none;
+  flex: 1 0 auto;
+  border: none;
+  font-size: 24px;
+  color: gray;
+}
+.borderBottom {
+  border-bottom: 2px gold solid;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+.pictureBlock {
+  position: relative;
+  background: url("/src/assets/img3.png") 0 0 / cover no-repeat;
+  width: 704px;
+  height: 680px;
+}
+.pictureBlock > div {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 350px;
+  height: 330px;
+  background-color: #ccc;
+  padding: 2rem;
+}
+.pictureBlock > div > * {
+  padding: 1rem;
+}
+/* ========FOOTER============= */
+.flex {
+  display: flex;
+}
+.between {
+  justify-content: space-between;
+  align-items: center;
+}
+.gap {
+  gap: 10px;
+}
+.footerIcon {
+  background: url("./assets/mir\ 2.png") 0 0 / cover no-repeat;
+  width: 75.034px;
+  height: 32px;
+  flex-shrink: 0;
+}
+.currency {
+  background-color: #777;
+  border-radius: 100vw;
+  padding: 15px;
+  color: #fff;
+}
+.rotable {
+  rotate: 180deg;
+  animation: 500ms;
+  opacity: 1;
 }
