@@ -1,15 +1,41 @@
 import React from "react";
-import CollapseList from "../components/CollapseList";
+import Collapsible from "../components/Collapsible";
+
+import { countries } from "../data/countries";
+import ListOfCountries from "../components/listOfCountries";
 
 function Hotels() {
   return (
     <div>
       <h1 className="borderBottom">ГОТЕЛІ</h1>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+      <div className="gridC">
         <div>
-          <CollapseList title="hello" description="some description" />
+          <h1 style={{ textTransform: "uppercase" }}>Усі країни</h1>
+          <Collapsible title="Європа" size="20px" color="red">
+            <div>
+              <a href="/">text for example</a>
+            </div>
+            <hr />
+            <div>
+              <a href="/">text for example 2</a>
+            </div>
+            <hr />
+            <Collapsible title="second example" left="10px" color="green">
+              <div>
+                <a href="/">second text</a>
+              </div>
+            </Collapsible>
+          </Collapsible>
+          <Collapsible title="Америка">
+            <div>
+              <a href="/">США</a>
+            </div>
+          </Collapsible>
+          <Collapsible title="Австралія"></Collapsible>
         </div>
-        <div>Some content</div>
+        <div>
+          <ListOfCountries countries={countries} />
+        </div>
       </div>
     </div>
   );

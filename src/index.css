@@ -171,12 +171,6 @@ button:hover {
 .gap {
   gap: 10px;
 }
-.footerIcon {
-  background: url("./assets/mir\ 2.png") 0 0 / cover no-repeat;
-  width: 75.034px;
-  height: 32px;
-  flex-shrink: 0;
-}
 .currency {
   background-color: #777;
   border-radius: 100vw;
@@ -187,4 +181,11 @@ button:hover {
   rotate: 180deg;
   animation: 500ms;
   opacity: 1;
+}
+.gridC {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+.allMargin > * {
+  margin: 8px 0;
 }

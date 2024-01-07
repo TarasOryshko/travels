@@ -3,19 +3,7 @@ import React from "react";
 function HomeNews({ data, title, description, borderr, showBtn = false }) {
   const show = showBtn ? "block" : "none";
   return (
-    <div
-      className={borderr}
-      style={
-        {
-          // display: "flex",
-          // flexShrink: 1,
-          // flexDirection: "column",
-          // alignItems: "start",
-          // marginBottom: 20,
-          // justifyContent: "start",
-        }
-      }
-    >
+    <div className={borderr}>
       <data style={{ color: "gold", fontStyle: "italic" }}>{data}</data>
       <h2
         style={{
@@ -35,7 +23,7 @@ function HomeNews({ data, title, description, borderr, showBtn = false }) {
         }}
       >
         <div>
-          <description style={{ marginBottom: 26 }}>{description}</description>
+          <p style={{ marginBottom: 26 }}>{description}</p>
         </div>
         <div style={{ display: show }}>
           <button>Детальніше</button>
