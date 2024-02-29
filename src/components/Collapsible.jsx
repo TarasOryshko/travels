@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import Arrow from "../svg/arrowCollapse.svg";
+import Arrow from "../assets/svg/arrowCollapse.svg";
 
 function Collapsible({ title, children, size = 14, color, left }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const showBlock = {
     display: open ? "block" : "none",
+    transition: "display 1s ease",
   };
   const rot = {
     rotate: open ? "180deg" : "0deg",
@@ -36,7 +37,7 @@ function Collapsible({ title, children, size = 14, color, left }) {
         </div>
       </div>
       <hr />
-      <div className="allMarginŸ`" style={showBlock}>
+      <div className="allMargin`" style={showBlock}>
         {children}
       </div>
     </div>

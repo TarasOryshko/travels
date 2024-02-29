@@ -1,8 +1,8 @@
 import React from "react";
-import search from "../../svg/search.svg";
 import HomeNews from "../../components/homeNews";
-import imgNews from "../../assets/image 2.png";
+import imgNews from "../../assets/png/image 2.png";
 import Footer from "../../components/Footer";
+import Search from "../../components/Search";
 
 function Home() {
   return (
@@ -18,13 +18,7 @@ function Home() {
           <button>Більше</button>
         </div>
       </section>
-      <div className="search">
-        <div>
-          <img src={search} alt={search} />
-        </div>
-        <input type="search" placeholder="Пошук готелю" />
-        <button>Знайти</button>
-      </div>
+      <Search placeholder="Знайти готель" />
       <section
         style={{
           display: "flex",

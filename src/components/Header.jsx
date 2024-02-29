@@ -1,18 +1,28 @@
 import React from "react";
-import search from "../svg/search.svg";
-import logo from "../svg/logo.svg";
+import search from "../assets/svg/search.svg";
+import logo from "../assets/svg/logo.svg";
 import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <div>
-      <div className="headerFlex" style={{ justifyContent: "space-between" }}>
+    <div
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 99,
+        background: "#fff",
+      }}
+    >
+      <div
+        className="headerFlex"
+        style={{ justifyContent: "space-between", flexWrap: "wrap" }}
+      >
         <div>
           <Link to="/">
             <img src={logo} alt="logo" />
           </Link>
         </div>
-        <div className="headerFlex">
+        <div className="headerFlex" style={{ flexWrap: "wrap" }}>
           <nav className="headerFlex" style={{ alignItems: "center" }}>
             <li>
               <Link to="/">Додому</Link>

@@ -1,4 +1,4 @@
-import imgCountry from "../assets/countries.png";
+import imgCountry from "../assets/png/countries.png";
 
 export const countries = [
   {
@@ -7,8 +7,8 @@ export const countries = [
     country: "Індонезія",
     city: "Балі",
     village: "Убуд",
-    title: "Four Seasons Resort Bali at Jimbaran Bay",
-    stars: 5,
+    title: "Four Seasons",
+    stars: 2,
     description: "Готель розташований на березі моря у чудовим баром",
   },
   {
@@ -28,7 +28,7 @@ export const countries = [
     city: "Балі",
     village: "Убуд",
     title: "Four Seasons Resort Bali at Jimbaran Bay",
-    stars: 5,
+    stars: 3,
     description: "Готель розташований на березі моря у чудовим баром",
   },
   {
@@ -38,7 +38,7 @@ export const countries = [
     city: "Балі",
     village: "Убуд",
     title: "Four Seasons Resort Bali at Jimbaran Bay",
-    stars: 5,
+    stars: 4,
     description: "Готель розташований на березі моря у чудовим баром",
   },
   {

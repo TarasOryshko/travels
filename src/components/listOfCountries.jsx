@@ -14,13 +14,13 @@ function ListOfCountries({ countries }) {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(3,1fr)",
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(200px,100%),1fr))",
         gap: 32,
-        margin: "25px 0 0 25px",
+        marginTop: 25,
       }}
     >
       {countries.map((i) => (
-        <div key={i.id}>
+        <div className="selectedCountry" key={i.id}>
           <div style={{ height: 228, objectFit: "cover", marginBottom: 12 }}>
             <img src={i.src} alt="img" />
           </div>
@@ -30,16 +30,13 @@ function ListOfCountries({ countries }) {
           <h2 style={{ textTransform: "uppercase", margin: "12px 0" }}>
             {i.title}
           </h2>
-
-          <StarRating num={i.star} />
+          <StarRating num={i.stars} />
           <hr style={{ margin: "12px 0" }} />
           <div>
             <p>{i.description}</p>
           </div>
         </div>
       ))}
-
-      <StarRating num={2} />
     </div>
   );
 }

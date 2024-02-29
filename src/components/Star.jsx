@@ -1,5 +1,5 @@
 import React from "react";
-import starSvg from "../svg/Star-Filled.svg";
+import starSvg from "../assets/svg/Star-Filled.svg";
 
 const Star = () => {
   return (

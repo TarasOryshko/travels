@@ -7,6 +7,9 @@ function HomeNews({ data, title, description, borderr, showBtn = false }) {
       <data style={{ color: "gold", fontStyle: "italic" }}>{data}</data>
       <h2
         style={{
+          fontFamily: "'Montserrat', sans-serif",
+          fontSize: 24,
+          fontWeight: 600,
           padding: "12px 0 ",
           textTransform: "uppercase",
           textWrap: "balance",

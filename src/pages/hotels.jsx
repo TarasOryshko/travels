@@ -10,28 +10,29 @@ function Hotels() {
       <h1 className="borderBottom">ГОТЕЛІ</h1>
       <div className="gridC">
         <div>
-          <h1 style={{ textTransform: "uppercase" }}>Усі країни</h1>
-          <Collapsible title="Європа" size="20px" color="red">
-            <div>
-              <a href="/">text for example</a>
-            </div>
-            <hr />
-            <div>
-              <a href="/">text for example 2</a>
-            </div>
-            <hr />
-            <Collapsible title="second example" left="10px" color="green">
+          <Collapsible title="Усі країни">
+            <Collapsible title="Європа" size="20px" color="red">
               <div>
-                <a href="/">second text</a>
+                <a href="!">text for example</a>
+              </div>
+              <hr />
+              <div>
+                <a href="!">text for example 2</a>
+              </div>
+              <hr />
+              <Collapsible title="second example" left="10px" color="green">
+                <div>
+                  <a href="!">second text</a>
+                </div>
+              </Collapsible>
+            </Collapsible>
+            <Collapsible title="Америка">
+              <div>
+                <a href="!">США</a>
               </div>
             </Collapsible>
+            <Collapsible title="Австралія"></Collapsible>
           </Collapsible>
-          <Collapsible title="Америка">
-            <div>
-              <a href="/">США</a>
-            </div>
-          </Collapsible>
-          <Collapsible title="Австралія"></Collapsible>
         </div>
         <div>
           <ListOfCountries countries={countries} />

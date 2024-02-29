@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../svg/logo.svg";
-import facebook from "../svg/facebook.svg";
-import youtube from "../svg/youtube.svg";
-import instagram from "../svg/instagram.svg";
-import verified from "../svg/verified.svg";
-import masterCard from "../svg/masterCard.svg";
-import mir from "../svg/mir 2.svg";
+import logo from "../assets/svg/logo.svg";
+import facebook from "../assets/svg/facebook.svg";
+import youtube from "../assets/svg/youtube.svg";
+import instagram from "../assets/svg/instagram.svg";
+import verified from "../assets/svg/verified.svg";
+import masterCard from "../assets/svg/masterCard.svg";
+import mir from "../assets/svg/mir 2.svg";
 
 function Footer() {
   return (
