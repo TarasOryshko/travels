@@ -1,11 +1,15 @@
 import React from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 
 function MainNavigation({ children }) {
   return (
-    <div>
+    <div
+      style={{ display: "flex", minHeight: "100vh", flexDirection: "column" }}
+    >
       <Header />
-      {children}
+      <div style={{ flex: 1 }}>{children}</div>
+      <Footer />
     </div>
   );
 }

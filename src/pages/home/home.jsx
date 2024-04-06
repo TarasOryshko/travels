@@ -1,7 +1,5 @@
-import React from "react";
 import HomeNews from "../../components/homeNews";
 import imgNews from "../../assets/png/image 2.png";
-import Footer from "../../components/Footer";
 import Search from "../../components/Search";
 
 function Home() {
@@ -106,7 +104,6 @@ function Home() {
           />
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

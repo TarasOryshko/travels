@@ -3,6 +3,8 @@ import { useSearchParams } from "react-router-dom";
 
 function Countries() {
   const [activeTab, setActiveTab] = useState("tab1");
+  const [victor, setVictor] = useState(false);
+  // const [chan, setChan] = useState({});
 
   const [post, setPosts] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams({ q: "" });
@@ -15,14 +17,40 @@ function Countries() {
     tab3: "green",
   };
 
+  // const change = (e) => {
+  //   const { name, checked } = e.target;
+  //   setChan({ ...chan, [name]: checked });
+  // };
+  // const list = [];
+  // for (let key in chan) {
+  //   if (chan[key] === true) {
+  //     list.push(key);
+  //     console.log(list);
+  //   }
+  // }
+  // const product = ["watch", "some", "title", "small"];
+  // const filt = (arr, items) => arr.filter((i) => items.includes(i));
+  // const fiv = filt(product, list);
+  // console.log("filetred", fiv);
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
+    fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
       .then((data) => setPosts(data));
   }, []);
-  const filtered = post.filter((i) =>
-    i.title.toLowerCase().includes(q.toLowerCase())
-  );
+  const subject = ["name", "username", "email", "phone"];
+
+  const filtered = post.filter((i) => {
+    if (victor && q)
+      return (
+        i.address.street.toLowerCase().includes("victor") ||
+        i.name.toLowerCase().includes(q.toLowerCase())
+      );
+    if (victor) return i.address.street.toLowerCase().includes("victor");
+
+    return subject.some((key) =>
+      i[key].toLowerCase().includes(q.toLowerCase())
+    );
+  });
 
   return (
     <div>
@@ -112,22 +140,57 @@ function Countries() {
           </p>
         </div>
       )}
-      <input
-        type="search"
-        onChange={(e) =>
-          setSearchParams(
-            (prev) => {
-              prev.set("q", e.target.value);
-              return prev;
-            },
-            { replace: true }
-          )
-        }
-        value={q}
-      />
-      {filtered.map((i) => (
-        <li key={i.id}>{i.title}</li>
-      ))}
+      <div>
+        <input
+          type="search"
+          placeholder="Type something"
+          value={q}
+          onChange={(e) =>
+            setSearchParams(
+              (prev) => {
+                prev.set("q", e.target.value);
+                return prev;
+              },
+              { replace: true }
+            )
+          }
+        />
+        <button value="victor" onClick={() => setVictor(!victor)}>
+          Victor
+        </button>
+        <table style={{ width: "100%" }}>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>SurName</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>City</th>
+              <th>Street</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.map((i) => (
+              <tr key={i.id}>
+                <td>{i.id}</td>
+                <td>{i.name}</td>
+                <td>{i.username}</td>
+                <td>{i.email}</td>
+                <td>{i.phone}</td>
+                <td>{i.address.city}</td>
+                <td>{i.address.street}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {/* <div>
+        <input type="checkbox" name="watch" id="watch" onChange={change} />
+        <label htmlFor="watch">Watch</label>
+        <input type="checkbox" name="some" id="some" onChange={change} />
+        <label htmlFor="some">Some</label>
+      </div> */}
     </div>
   );
 }

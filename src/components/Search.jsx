@@ -1,6 +1,7 @@
 // import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import search from "../assets/svg/search.svg";
+import { useEffect } from "react";
 
 function Search({
   placeholder,
@@ -11,13 +12,15 @@ function Search({
   const [searchParams, setSearchParams] = useSearchParams({ q: "" });
   const q = searchParams.get("q");
 
-  // const [name, setName] = useState("");
   const styles = {
     display: showBtn ? "block" : "none",
   };
+  useEffect(() => {
+    onSearchChange && onSearchChange(q);
+  }, []);
 
   const handleChange = (e) => {
-    const value = e.target.value;
+    const { value } = e.target;
     setSearchParams(
       (prev) => {
         prev.set("q", value);
@@ -25,8 +28,7 @@ function Search({
       },
       { replace: true }
     );
-    onSearchChange(q);
-    // setName(value);
+    onSearchChange(value);
   };
 
   return (
