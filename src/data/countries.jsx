@@ -1,4 +1,15 @@
 import imgCountry from "../assets/png/countries.png";
+import Home from "../pages/home/home";
+import Travels from "../pages/travels";
+import Hotels from "../pages/hotels";
+import Countries from "../pages/countries";
+
+export const navList = [
+  { path: "/", name: <Home />, title: "Додому" },
+  { path: "/travels", name: <Travels />, title: "Подорожі" },
+  { path: "/hotels", name: <Hotels />, title: "Готелі" },
+  { path: "/countries", name: <Countries />, title: "Країни" },
+];
 
 export const countries = [
   {

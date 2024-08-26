@@ -6,7 +6,7 @@ const Star = () => {
     <img
       src={starSvg}
       alt="star"
-      style={{ width: "24px", height: "24px", marginRight: "2px" }} // Замініть на власні стилі
+      style={{ width: "24px", height: "24px", marginRight: "2px" }}
     />
   );
 };

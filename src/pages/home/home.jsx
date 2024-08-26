@@ -18,6 +18,7 @@ function Home() {
       </section>
       <Search placeholder="Знайти готель" />
       <section
+        className="section2"
         style={{
           display: "flex",
           flexDirection: "row-reverse",
@@ -26,7 +27,7 @@ function Home() {
           marginBottom: 30,
         }}
       >
-        <div style={{ flex: "1 0 60%" }}>
+        <div className="section2Container" style={{ flexBasis: "70%" }}>
           <div
             className="borderBottom"
             style={{
@@ -42,9 +43,17 @@ function Home() {
               description="Програма від Bvlgari Resort Bali"
               // showBtn="true"
             />
-            <div>
-              <img src={imgNews} alt="imgNews" />
-            </div>
+            {/* <div style={{ height: "100%", border: "3px solid red" }}> */}
+            <img
+              style={{
+                width: 450,
+                height: 250,
+                objectFit: "cover",
+              }}
+              src={imgNews}
+              alt="imgNews"
+            />
+            {/* </div> */}
           </div>
           <HomeNews
             data="01 грудня 2022"
@@ -74,7 +83,7 @@ function Home() {
           style={{
             borderRight: "1px solid #ccc",
             paddingRight: 60,
-            flexBasis: "40%",
+            flexBasis: "30%",
           }}
         >
           <HomeNews

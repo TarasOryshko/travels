@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { removeCustomerAction } from "../storeRedux/customersReducer.js";
+import { addCustomerAction } from "../storeRedux/customersReducer.js";
+import { fetchCustomers } from "../asyncReduxActions/customers.js";
 
 function Countries() {
   const [activeTab, setActiveTab] = useState("tab1");
   const [victor, setVictor] = useState(false);
+  const [optional, setOptional] = useState("select");
   // const [chan, setChan] = useState({});
 
   const [post, setPosts] = useState([]);
@@ -16,6 +21,28 @@ function Countries() {
     tab2: "yellow",
     tab3: "green",
   };
+
+  // Redux ===================================
+  const dispatch = useDispatch();
+  const cash = useSelector((state) => state.cash.cash);
+  const customers = useSelector((state) => state.customer.customers);
+  const addCash = () => {
+    dispatch({ type: "ADD_CASH", payload: 5 });
+  };
+  const getCash = () => {
+    dispatch({ type: "GET_CASH", payload: 5 });
+  };
+  const addCustomer = (name) => {
+    const customer = {
+      id: Date.now(),
+      name,
+    };
+    dispatch(addCustomerAction(customer));
+  };
+  const removeCustomer = (customer) => {
+    dispatch(removeCustomerAction(customer.id));
+  };
+  //============================================
 
   // const change = (e) => {
   //   const { name, checked } = e.target;
@@ -40,13 +67,14 @@ function Countries() {
   const subject = ["name", "username", "email", "phone"];
 
   const filtered = post.filter((i) => {
+    if (optional !== "select")
+      return i.address.city.toLowerCase().includes(optional.toLowerCase());
     if (victor && q)
       return (
         i.address.street.toLowerCase().includes("victor") ||
-        i.name.toLowerCase().includes(q.toLowerCase())
+        subject.some((key) => i[key].toLowerCase().includes(q.toLowerCase()))
       );
     if (victor) return i.address.street.toLowerCase().includes("victor");
-
     return subject.some((key) =>
       i[key].toLowerCase().includes(q.toLowerCase())
     );
@@ -93,10 +121,10 @@ function Countries() {
         <div style={{ backgroundColor: colors.tab1 }}>
           <h3>Some content for #1</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias
-            aperiam unde voluptatibus natus officia minus obcaecati nulla,
-            expedita sed hic tempora rerum saepe, ad, mollitia ipsum. Recusandae
-            quae enim voluptatem!
+            Lorem cod ipsum dolor sit amet, consectetur adipisicing elit.
+            Molestias aperiam unde voluptatibus natus officia minus obcaecati
+            nulla, expedita sed hic tempora rerum saepe, ad, mollitia ipsum.
+            Recusandae quae enim voluptatem!
           </p>
         </div>
       )}
@@ -155,9 +183,21 @@ function Countries() {
             )
           }
         />
-        <button value="victor" onClick={() => setVictor(!victor)}>
+        <button
+          style={{ backgroundColor: victor && "green" }}
+          value="victor"
+          onClick={() => setVictor(!victor)}
+        >
           Victor
         </button>
+        <select value={optional} onChange={(e) => setOptional(e.target.value)}>
+          <option value="select">--Select--</option>
+          {post.map((i) => (
+            <option value={i.address.city} key={i.name}>
+              {i.address.city}
+            </option>
+          ))}
+        </select>
         <table style={{ width: "100%" }}>
           <thead>
             <tr>
@@ -191,6 +231,33 @@ function Countries() {
         <input type="checkbox" name="some" id="some" onChange={change} />
         <label htmlFor="some">Some</label>
       </div> */}
+      <hr />
+      <h2 className="text-3xl font-bold">Some Redux below</h2>
+      {cash}
+      <hr />
+      <div>
+        <button onClick={() => addCash()}>Add</button>
+        <button onClick={() => getCash()}>Get</button>
+        <button onClick={() => addCustomer(prompt())}>Add Customer</button>
+        <button onClick={() => dispatch(fetchCustomers())}>
+          Fetch Customers
+        </button>
+      </div>
+
+      {customers.length > 0 ? (
+        <div>
+          {customers.map((customer) => (
+            <div key={customer.id} className="flex justify-between">
+              <div className=" cursor-pointer hover:bg-lime-200">
+                {customer.name}
+              </div>
+              <button onClick={() => removeCustomer(customer)}>Delete</button>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div>Empty</div>
+      )}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import Collapsible from "../components/Collapsible";
+import Collapsible from "../components/Collapsible.tsx";
 
 import { countries } from "../data/countries";
 import ListOfCountries from "../components/listOfCountries";

@@ -23,6 +23,9 @@ button {
   border: none;
   cursor: pointer;
 }
+button:disabled {
+  background-color: red;
+}
 li {
   list-style: none;
 }
@@ -32,7 +35,7 @@ img {
   width: 100%;
   object-fit: cover;
 }
-tbody tr:nth-child(odd) {
+tr:nth-child(even) {
   background-color: #ccc;
 }
 /* HEADER ======================== */
@@ -52,6 +55,9 @@ tbody tr:nth-child(odd) {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.btnBurger {
+  display: none;
 }
 .burger {
   position: relative;
@@ -99,8 +105,8 @@ tbody tr:nth-child(odd) {
 /* HOME ================ */
 .homeBanner {
   position: relative;
-  background: url("./pages//home//img/samsommer-vddccTqwal8-unsplash\ 1.jpg") 0
-    0 / cover no-repeat;
+  background: url("./pages//home//img/samsommer-vddccTqwal8-unsplash\ 1.jpg")
+    no-repeat center/cover;
   width: 100%;
   height: 560px;
   margin: 50px 0;
@@ -138,7 +144,7 @@ button:hover {
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 730px;
+  max-width: 730px;
   height: 64px;
   border-radius: 34px;
   border: 2px gold solid;
@@ -159,8 +165,8 @@ button:hover {
 }
 .pictureBlock {
   position: relative;
-  background: url("/src/assets/png/img3.png") 0 0 / cover no-repeat;
-  width: 704px;
+  background: url("/src/assets/png/img3.png") no-repeat center/ cover;
+  width: 100%;
   height: 680px;
 }
 .pictureBlock > div {
@@ -219,4 +225,18 @@ button:hover {
 .selectedCountry:hover {
   scale: 1.05;
   background-color: lightyellow;
+}
+@media (width <= 900px) {
+  .section2 {
+    flex-wrap: wrap;
+  }
+  .section2 > * {
+    flex: 1;
+  }
+  .btnBurger {
+    display: block;
+  }
+  .headerFlex > nav {
+    display: none;
+  }
 }

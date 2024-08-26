@@ -9,16 +9,23 @@ function Pagination({ postsPerPage, totalPosts, paginate }) {
 
   return (
     <nav>
-      <ul className="flex" style={{ justifyContent: "center" }}>
+      <ul className="flex" style={{ justifyContent: "center", gap: 5 }}>
         {pageNumbers.map((number) => (
-          <li style={{ border: "2px solid green" }} key={number}>
-            <a
-              style={{ padding: 20, display: "block" }}
-              onClick={(e) => paginate(number, e)}
-              href="#"
-            >
-              {number}
-            </a>
+          <li
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              display: "flex",
+              width: 50,
+              height: 50,
+              border: "2px solid green",
+              borderRadius: "50%",
+              cursor: "pointer",
+            }}
+            key={number}
+            onClick={(e) => paginate(number, e)}
+          >
+            {number}
           </li>
         ))}
       </ul>
